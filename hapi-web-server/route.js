@@ -37,7 +37,7 @@ const routes = [
       if(lang === 'id'){
         return `Halo, ${name}`
       }
-      
+
       return `Hello ${name}`;
     },
   },
