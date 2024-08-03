@@ -3,7 +3,6 @@ const http = require("http");
 const requestListener = (req, res) => {
   res.setHeader("Content-Type", "text/html");
 
-  res.statusCode = 200;
   const { method, url } = req;
 
   if (url === "/") {
