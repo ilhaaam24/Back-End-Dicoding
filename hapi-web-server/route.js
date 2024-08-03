@@ -1,38 +1,46 @@
 const routes = [
   {
-    method: 'GET',
-    path: '/',
-    handler: (request, h) =>{
-      return 'Homepage'
-    }
+    method: "GET",
+    path: "/",
+    handler: (request, h) => {
+      return "Homepage";
+    },
   },
   {
-    method: '*',
-    path: '/',
+    method: "*",
+    path: "/",
     handler: (request, h) => {
-      return 'Halaman tidak dapat diakses dengan method tersebut';
-    }
+      return "Halaman tidak dapat diakses dengan method tersebut";
+    },
   },
   {
-    method: 'GET',
-    path: '/about',
+    method: "GET",
+    path: "/about",
     handler: (request, h) => {
-      return 'About page';
-    }
+      return "About page";
+    },
   },
   {
-    method: '*',
-    path: '/about',
+    method: "*",
+    path: "/about",
     handler: (request, h) => {
-      return 'Halaman tidak dapat diakses dengan method';
-    }
+      return "Halaman tidak dapat diakses dengan method";
+    },
   },
   {
-    method: '*',
-    path: '/{any*}',
+    method: "GET",
+    path: "/hello/{name?}",
     handler: (request, h) => {
-      return 'Halaman tidak ditemukan';
-    }
-  }
-]
+      const { name = "staranger" } = request.params;
+      return `Hello ${name}`;
+    },
+  },
+  {
+    method: "*",
+    path: "/{any*}",
+    handler: (request, h) => {
+      return "Halaman tidak ditemukan";
+    },
+  },
+];
 module.exports = routes;
